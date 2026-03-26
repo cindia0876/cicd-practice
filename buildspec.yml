@@ -1,0 +1,11 @@
+version: 0.2
+
+phases:
+  build:
+    commands:
+      - echo "Building Docker image..."
+      - docker build -t simple-app .
+
+  post_build:
+    commands:
+      - echo "Done!"
