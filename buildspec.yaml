@@ -1,11 +1,18 @@
 version: 0.2
 
 phases:
+  pre_build:
+    commands:
+      - echo "Starting build..."
   build:
     commands:
       - echo "Building Docker image..."
-      - docker build -t simple-app .
-
+      - IMAGE_TAG=simple-app:latest
+      - docker build -t $IMAGE_TAG .
   post_build:
     commands:
-      - echo "Done!"
+      - echo "Build finished!"
+
+artifacts:
+  files:
+    - '**/*'
